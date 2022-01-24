@@ -11,8 +11,8 @@ function installAll() {
   echo "$(tput setaf 2)Installed dependencies."
   echo "$(tput setaf 6)Cloning the latest sniper code..."
   cd ..
-  rm -rf Requiem &> /dev/null
-  git clone https://github.com/xdxdyuhyuh/Requiem Requiem &> /dev/null
+  rm -rf nitro-sniper &> /dev/null
+  git clone https://github.com/xdxdyuhyuh/Requiem nitro-sniper &> /dev/null
   cd Requiem
   echo "$(tput setaf 2)Cloned latest version of the sniper."
   echo "$(tput setaf 6)Installing sniper dependencies..."
