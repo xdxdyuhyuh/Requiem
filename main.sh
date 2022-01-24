@@ -13,7 +13,7 @@ function installAll() {
   cd ..
   rm -rf nitro-sniper &> /dev/null
   git clone https://github.com/xdxdyuhyuh/Requiem nitro-sniper &> /dev/null
-  cd Requiem
+  cd nitro-sniper
   echo "$(tput setaf 2)Cloned latest version of the sniper."
   echo "$(tput setaf 6)Installing sniper dependencies..."
   npm install &> /dev/null
@@ -22,7 +22,7 @@ function installAll() {
   npx node ./src/index.js
 }
 
-cd Requiem
+cd nitro-sniper
 if [ $(compareVersions $PACKAGE_VERSION) -lt $(compareVersions $LATEST_VERSION) ] || [ ! -d "node_modules" ]; then
   installAll
 else
