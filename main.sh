@@ -1,5 +1,5 @@
-PACKAGE_VERSION=$(node -p -e "try { require('./nitro-sniper/package.json').version } catch { '0.0.0' }")
-LATEST_VERSION=$(curl --silent "https://raw.githubusercontent.com/slow/nitro-sniper/main/package.json" | grep '"version":' | sed -E 's/.*"([^"]+)".*/\1/')
+PACKAGE_VERSION=$(node -p -e "try { require('./Requiem/package.json').version } catch { '0.0.0' }")
+LATEST_VERSION=$(curl --silent "https://raw.githubusercontent.com/xdxdyuhyuh/Requiem/main/package.json" | grep '"version":' | sed -E 's/.*"([^"]+)".*/\1/')
 
 function compareVersions {
    echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }';
@@ -11,9 +11,9 @@ function installAll() {
   echo "$(tput setaf 2)Installed dependencies."
   echo "$(tput setaf 6)Cloning the latest sniper code..."
   cd ..
-  rm -rf nitro-sniper &> /dev/null
-  git clone https://github.com/slow/nitro-sniper nitro-sniper &> /dev/null
-  cd nitro-sniper
+  rm -rf Requiem &> /dev/null
+  git clone https://github.com/xdxdyuhyuh/Requiem Requiem &> /dev/null
+  cd Requiem
   echo "$(tput setaf 2)Cloned latest version of the sniper."
   echo "$(tput setaf 6)Installing sniper dependencies..."
   npm install &> /dev/null
@@ -22,7 +22,7 @@ function installAll() {
   npx node ./src/index.js
 }
 
-cd nitro-sniper
+cd Requiem
 if [ $(compareVersions $PACKAGE_VERSION) -lt $(compareVersions $LATEST_VERSION) ] || [ ! -d "node_modules" ]; then
   installAll
 else
